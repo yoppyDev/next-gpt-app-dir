@@ -1,0 +1,39 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["jsonProtocol"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Room {
+  id        String    @id @default(uuid()) @map("id")
+  name      String
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @default(now()) @updatedAt @map("updated_at")
+  messages  Message[]
+
+  @@map("rooms")
+}
+
+model Message {
+  id        Int      @id @default(autoincrement())
+  role      Role
+  content   String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+  room      Room     @relation(fields: [roomId], references: [id])
+  roomId    String   @map("room_id")
+
+  @@index([roomId], name: "idx_room_id")
+  @@map("messages")
+}
+
+enum Role {
+  system
+  user
+  assistant
+}

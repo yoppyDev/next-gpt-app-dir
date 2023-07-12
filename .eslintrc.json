@@ -1,0 +1,33 @@
+{
+  // https://eslint.org/docs/latest/use/configure/language-options
+  "env": {
+    "browser": true,
+    "es2022": true,
+    "node": true
+  },
+  // https://eslint.org/docs/latest/use/configure/language-options#specifying-parser-options
+  "parserOptions": {
+    // import
+    "scourcType": "module"
+  },
+  // Eslinkの部分的な拡張（extendｓで足りない部分を補う感じ）
+  "plugins": [],
+  // 外部パッケージ（全体的な拡張）
+  // 他の設定も追加してくれる
+  // 後ろから順番に優先される
+  "extends": [
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    // prettierは最後にする必要がある
+    "prettier"
+  ],
+  "rules": {
+    // [off, warn, error]
+    "no-undef": ["error"],
+    "react/prop-types": ["off"],
+    "react/react-in-jsx-scope": ["off"]
+  }
+}
