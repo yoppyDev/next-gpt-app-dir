@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm run dev:core & npm run dev:proxy",
-    "dev:core": "next dev -p 3000",
-    "dev:proxy": "local-ssl-proxy --key localhost-key.pem --cert localhost.pem --source 3001 --target 3000",
+    "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
     "lint": "run-p --continue-on-error lint:*",
