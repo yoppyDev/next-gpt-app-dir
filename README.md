@@ -2,7 +2,7 @@
 
 # next-gpt-app-dir
 
-You can check out the app on [Vercel](next-lesson-nu.vercel.app)!
+You can check out the app on [Vercel](https://next-lesson-nu.vercel.app)!
 
 ![スクリーンショット 2023-08-20 16 19 05](https://github.com/yoppytaro/next-gpt-app-dir/assets/58821058/28707679-e9de-4e12-b7be-e3458ea2e789)
 
